@@ -1,0 +1,92 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+      <title>Geolocation API</title> 
+      <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css
+        " integrity="sha384-
+        Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="Booking.CSS">
+        <script src="https://kit.fontawesome.com/332a215f17.js"
+        crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+        <title>Car Rental</title>
+        
+     </head> 
+    <body> 
+        <nav class="navbar navbar-expand-lg fixed-top nav-menu">
+            <a ><i class="fas fa-car-side fa-3x"></i></a>
+            <button class="navbar-toggler nav-button" type="button" data-toggle="collapse" data-target="#navbar">
+            <div class="bg-light bar1"></div>
+            <div class="bg-light bar2"></div>
+            <div class="bg-light bar3"></div>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end text-uppercase font-weight-bold" id="navbar">
+            <ul class="navbar-nav">
+            <li class="nav-item"><a href="app_index.html" class="nav-link m-2 menu">Home</a></li>
+            <li class="nav-item"><a href="Services.html" class="nav-link m-2 menu">Services</a></li>
+            <li class="nav-item"><a href="About.html" class="nav-link m-2 menu">About</a></li>
+            <li class="nav-item"><a href="contact.html" class="nav-link m-2 menu">Contact Us</a></li>
+            <li class="nav-item"><a href="Login.html" class="nav-link m-2 menu">Login</a></li>
+            <li class="nav-item"><a href="Booking.html" class="nav-link m-2 menu">Booking</a></li>
+            <li class="nav-item"><a href="gps.html" class="nav-link m-2 menu">GPS</a></li>
+            </ul>
+            </nav>
+            <div class="container">
+                <div class="py-5 text-center">
+                <i class="fas fa-car-side fa-3x"></i>
+                <h2>Booking Form</h2>
+               
+                
+        <button onclick="getlocation();"> Show Position</button> 
+        <div id="demo" style="width: 600px; height: 400px; margin-left: 200px;"></div> 
+    </div>
+        <script src="https://maps.google.com/maps/api/js?sensor=false"> </script> 
+        
+        <script type="text/javascript"> 
+        function getlocation(){ 
+            if(navigator.geolocation){ 
+                navigator.geolocation.getCurrentPosition(showPos, showErr); 
+            }
+            else{
+                alert("Sorry! your Browser does not support Geolocation API")
+            }
+        } 
+        //Showing Current Poistion on Google Map
+        function showPos(position){ 
+            latt = position.coords.latitude; 
+            long = position.coords.longitude; 
+            var lattlong = new google.maps.LatLng(latt, long); 
+            var myOptions = { 
+                center: lattlong, 
+                zoom: 15, 
+                mapTypeControl: true, 
+                navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL} 
+            } 
+            var maps = new google.maps.Map(document.getElementById("demo"), myOptions); 
+            var markers = 
+            new google.maps.Marker({position:lattlong, map:maps, title:"You are here!"}); 
+        } 
+
+        //Handling Error and Rejection
+             function showErr(error) {
+              switch(error.code){
+              case error.PERMISSION_DENIED:
+             alert("User denied the request for Geolocation API.");
+              break;
+             case error.POSITION_UNAVAILABLE:
+             alert("USer location information is unavailable.");
+            break;
+            case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+           case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+           }
+        }        </script> 
+        
+    </body> 
+</html>     

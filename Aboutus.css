@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body{
+    font-family: 'Comic Neue', cursive; 
+    }
+    /* Navbar */
+    .nav-menu{
+    padding: 25px; 
+    }
+    .fas{
+    color: #cbae96;
+    }
+    
+    .menu{
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #634832;
+    transition: all .4s;
+    }
+    .menu:hover{
+    color: tomato;
+    }
+    .bar1, .bar2, .bar3{
+    width: 23px;
+    height: 3px;
+    margin: 5px;
+    transition: all .4s;
+    }
+    .navbar-toggler{
+    outline: none!important;
+    }
+    /* end of navbar */
+    body{
+        background:url(images/pexels-te-lensfix-1371360.jpg)no-repeat center
+        center/cover;
+        font-family: 'Comic Neue', cursive;
+        height: 100;
+        }
+        .wrapper{
+        margin-top: 10%;
+        }
+        .wrapper h1{
+        font-family: 'Comic Neue', cursive;
+        font-size: 52px;
+        margin-bottom: 90px;
+        text-align: center;
+        }
+        
